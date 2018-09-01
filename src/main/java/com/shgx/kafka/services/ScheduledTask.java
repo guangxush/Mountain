@@ -6,6 +6,7 @@ import com.jcraft.jsch.SftpException;
 import com.shgx.kafka.dao.FileConfig;
 import com.shgx.kafka.dao.ServerConfig;
 import com.shgx.kafka.producer.FileProducer;
+import com.shgx.kafka.util.MailSend;
 import com.shgx.kafka.util.SSHWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.LineIterator;
@@ -44,6 +45,9 @@ public class ScheduledTask {
     @Autowired
     private FileProducer fileProducer;
 
+    @Autowired
+    private MailSend mailSend;
+
     /**
      * 1 minutes scheduled
      * */
@@ -60,6 +64,7 @@ public class ScheduledTask {
             }
             if (fileWatcher.updateFileStatus(channel)) {
                 System.out.println("weibo data sent successfully to kafka!");
+                //mailSend.sendmail("weibo data sent successfully to kafka!");
             }
         } catch (IOException ioe) {
             log.error("IOException happened", ioe);
