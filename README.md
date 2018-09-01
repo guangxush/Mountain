@@ -1,7 +1,7 @@
 # SpringBoot_Kafka
 Using SpringBoot send data to Kafka
 
-## function
+## Function
 1. producer send data to kafka
 2. customer receive data from kafka
 3. post producer send data by web services
@@ -12,7 +12,7 @@ Using SpringBoot send data to Kafka
 8. port forward connection via ssh tunnel
 9. using the private key connect the server without password
 
-## technology stack
+## Technology Stack
 - SpringBoot(web,mail,ScheduleTask,AOP,jcraft,json)
 - Kafka
 - Linux shell
