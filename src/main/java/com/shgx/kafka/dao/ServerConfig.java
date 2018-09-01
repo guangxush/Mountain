@@ -4,8 +4,8 @@ import com.shgx.kafka.util.ApplicationOptions;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import java.io.IOException;
-import java.util.logging.Logger;
 
 /**
  * Created by gshan on 2018/8/27
@@ -13,113 +13,78 @@ import java.util.logging.Logger;
 @Component
 @Slf4j
 public class ServerConfig {
-    private static final Logger logger = Logger.getLogger(ServerConfig.class);
 
-    private static final String ETLSERVER_PROPERTIES_FILE = "server.properties";
-    private static final String ETL_USER = "export.user";
-    private static final String ETL_HOST = "export.host";
-    private static final String ETL_PORT = "export.port";
-    private static final String ETL_KEYFILE = "export.keyfile";
+    private static final String SERVERS_FILES = "server.properties";
+    private static final String TAREGT_SERVER_USER = "target.server.user";
+    private static final String TAREGT_SERVER_HOST = "target.server.host";
+    private static final String TAREGT_SERVER_PORT = "target.server.port";
+    private static final String TAREGT_SERVER_KEYFILE = "target.server.keyfile";
+    private static final String JUMPBOX_SERVER_USER = "jumpbox.server.user";
+    private static final String JUMPBOX_SERVER_HOST = "jumpbox.server.host";
+    private static final String JUMPBOX_SERVER_PORT = "jumpbox.server.port";
+    private static final String JUMPBOX_SERVER_KEYFILE = "jumpbox.server.keyfile";
 
     protected ApplicationOptions applicationOptions;
 
     @Autowired
     public ServerConfig (ApplicationOptions applicationOptions) {
         this.applicationOptions = applicationOptions;
-        this.loadConfig(ETLSERVER_PROPERTIES_FILE);
+        this.loadConfig(SERVERS_FILES);
     }
 
-    private String etlUser;
-    private String etlHost;
-    private int etlPort;
-    private String keyFile;
-    private String targetFile;
-    private String targetDir;
-    private String doneDir;
-    private String doneFile;
-    private String processedFile;
-    private String jumpboxHost;
+    private String targetUser;
+    private int targetPort;
+    private String targetHost;
+    private String targetKeyfile;
+    private String jumpboxUser;
     private int jumpboxPort;
+    private String jumpboxHost;
     private String jumpboxKeyfile;
 
-    public String getEtlUser() {
-        return etlUser;
+    private String targerfile;
+    private String targetdir;
+    private String donefile;
+    private String donedir;
+    private String processedfile;
+
+    public String getTargetUser() {
+        return targetUser;
     }
 
-    public void setEtlUser(String etlUser) {
-        this.etlUser = etlUser;
+    public void setTargetUser(String targetUser) {
+        this.targetUser = targetUser;
     }
 
-    public String getEtlHost() {
-        return etlHost;
+    public int getTargetPort() {
+        return targetPort;
     }
 
-    public void setEtlHost(String etlHost) {
-        this.etlHost = etlHost;
+    public void setTargetPort(int targetPort) {
+        this.targetPort = targetPort;
     }
 
-    public int getEtlPort() {
-        return etlPort;
+    public String getTargetHost() {
+        return targetHost;
     }
 
-    public void setEtlPort(int etlPort) {
-        this.etlPort = etlPort;
+    public void setTargetHost(String targetHost) {
+        this.targetHost = targetHost;
     }
 
-    public String getKeyFile() {
-        return keyFile;
+    public String getTargetKeyfile() {
+        return targetKeyfile;
     }
 
-    public void setKeyFile(String keyFile) {
-        this.keyFile = keyFile;
+    public void setTargetKeyfile(String targetKeyfile) {
+        this.targetKeyfile = targetKeyfile;
     }
 
-    public String getTargetFile() {
-        return targetFile;
+    public String getJumpboxUser() {
+        return jumpboxUser;
     }
 
-    public void setTargetFile(String targetFile) {
-        this.targetFile = targetFile;
-    }
-
-    public String getTargetDir() {
-        return targetDir;
-    }
-
-    public void setTargetDir(String targetDir) {
-        this.targetDir = targetDir;
-    }
-
-    public String getDoneDir() {
-        return doneDir;
-    }
-
-    public void setDoneDir(String doneDir) {
-        this.doneDir = doneDir;
-    }
-
-    public String getDoneFile() {
-        return doneFile;
-    }
-
-    public void setDoneFile(String doneFile) {
-        this.doneFile = doneFile;
-    }
-
-    public String getProcessedFile() {
-        return processedFile;
-    }
-
-    public void setProcessedFile(String processedFile) {
-        this.processedFile = processedFile;
-    }
-
-    public String getJumpboxHost() {
-        return jumpboxHost;
-    }
-
-    public void setJumpboxHost(String jumpboxHost) {
-        this.jumpboxHost = jumpboxHost;
+    public void setJumpboxUser(String jumpboxUser) {
+        this.jumpboxUser = jumpboxUser;
     }
 
     public int getJumpboxPort() {
@@ -130,6 +95,14 @@ public class ServerConfig {
         this.jumpboxPort = jumpboxPort;
     }
 
+    public String getJumpboxHost() {
+        return jumpboxHost;
+    }
+
+    public void setJumpboxHost(String jumpboxHost) {
+        this.jumpboxHost = jumpboxHost;
+    }
+
     public String getJumpboxKeyfile() {
         return jumpboxKeyfile;
     }
@@ -138,15 +111,59 @@ public class ServerConfig {
         this.jumpboxKeyfile = jumpboxKeyfile;
     }
 
+    public String getTargerfile() {
+        return targerfile;
+    }
+
+    public void setTargerfile(String targerfile) {
+        this.targerfile = targerfile;
+    }
+
+    public String getTargetdir() {
+        return targetdir;
+    }
+
+    public void setTargetdir(String targetdir) {
+        this.targetdir = targetdir;
+    }
+
+    public String getDonefile() {
+        return donefile;
+    }
+
+    public void setDonefile(String donefile) {
+        this.donefile = donefile;
+    }
+
+    public String getDonedir() {
+        return donedir;
+    }
+
+    public void setDonedir(String donedir) {
+        this.donedir = donedir;
+    }
+
+    public String getProcessedfile() {
+        return processedfile;
+    }
+
+    public void setProcessedfile(String processedfile) {
+        this.processedfile = processedfile;
+    }
+
     public void loadConfig (String configFile){
         try {
             applicationOptions.init(configFile);
         } catch (IOException e) {
             log.error("Failed to read properties file. " + e);
         }
-        this.setEtlUser(applicationOptions.getByNameString(ETL_USER));
-        this.setEtlHost(applicationOptions.getByNameString(ETL_HOST));
-        this.setEtlPort(Integer.parseInt(applicationOptions.getByNameString(ETL_PORT)));
-        this.setKeyFile(applicationOptions.getByNameString(ETL_KEYFILE));
+        this.setTargetUser(applicationOptions.getByNameString(TAREGT_SERVER_USER));
+        this.setTargetHost(applicationOptions.getByNameString(TAREGT_SERVER_HOST));
+        this.setTargetPort(Integer.parseInt(applicationOptions.getByNameString(TAREGT_SERVER_PORT)));
+        this.setTargetKeyfile(applicationOptions.getByNameString(TAREGT_SERVER_KEYFILE));
+        this.setJumpboxUser(applicationOptions.getByNameString(JUMPBOX_SERVER_USER));
+        this.setJumpboxHost(applicationOptions.getByNameString(JUMPBOX_SERVER_HOST));
+        this.setJumpboxPort(Integer.parseInt(applicationOptions.getByNameString(JUMPBOX_SERVER_PORT)));
+        this.setJumpboxKeyfile(applicationOptions.getByNameString(JUMPBOX_SERVER_KEYFILE));
     }
 }

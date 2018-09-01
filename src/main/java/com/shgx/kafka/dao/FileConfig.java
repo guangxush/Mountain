@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.util.logging.Logger;
 
 /**
  * Created by gshan on 2018/8/27
@@ -14,21 +13,65 @@ import java.util.logging.Logger;
 @Component
 @Slf4j
 public class FileConfig extends ServerConfig{
-    private static final Logger logger = Logger.getLogger(FileConfig.class);
 
-    private static final String ETLSERVER_PROPERTIES_FILE = "etlserver.properties";
-    private static final String UPI_TARGETDIR = "export.targetdir";
-    private static final String UPI_TARGETFILE = "export.targetfile";
-    private static final String UPI_DONE_DIR = "export.donedir";
-    private static final String UPI_DONE_FILE = "export.donefile";
-    private static final String UPI_PROCESSED_FILE = "export.processedfile";
-
+    private static final String SERVERS_FILES = "server.properties";
+    private static final String FILE_TARGETDIR = "file.targetdir";
+    private static final String FILE_TARGETFILE = "file.targetfile";
+    private static final String FILE_DONEDIR = "file.donedir";
+    private static final String FILE_DONEFILE = "file.donefile";
+    private static final String FILE_PROCESSEDFILE = "file.processedfile";
 
     @Autowired
-    public FileConfig(ApplicationOptions applicationOptions) {
+    public FileConfig (ApplicationOptions applicationOptions) {
         super(applicationOptions);
         this.applicationOptions = applicationOptions;
-        this.loadConfig(ETLSERVER_PROPERTIES_FILE);
+        this.loadConfig(SERVERS_FILES);
+    }
+
+    private String targerfile;
+    private String targetdir;
+    private String donefile;
+    private String donedir;
+    private String processedfile;
+
+    public String getTargerfile() {
+        return targerfile;
+    }
+
+    public void setTargerfile(String targerfile) {
+        this.targerfile = targerfile;
+    }
+
+    public String getTargetdir() {
+        return targetdir;
+    }
+
+    public void setTargetdir(String targetdir) {
+        this.targetdir = targetdir;
+    }
+
+    public String getDonefile() {
+        return donefile;
+    }
+
+    public void setDonefile(String donefile) {
+        this.donefile = donefile;
+    }
+
+    public String getDonedir() {
+        return donedir;
+    }
+
+    public void setDonedir(String donedir) {
+        this.donedir = donedir;
+    }
+
+    public String getProcessedfile() {
+        return processedfile;
+    }
+
+    public void setProcessedfile(String processedfile) {
+        this.processedfile = processedfile;
     }
 
     @Override
@@ -38,10 +81,10 @@ public class FileConfig extends ServerConfig{
         } catch (IOException e) {
             log.error("Failed to read properties file. " + e);
         }
-        this.setTargetFile(applicationOptions.getByNameString(UPI_TARGETFILE));
-        this.setTargetDir(applicationOptions.getByNameString(UPI_TARGETDIR));
-        this.setDoneDir(applicationOptions.getByNameString(UPI_DONE_DIR));
-        this.setDoneFile(applicationOptions.getByNameString(UPI_DONE_FILE));
-        this.setProcessedFile(applicationOptions.getByNameString(UPI_PROCESSED_FILE));
+        this.setTargetdir(applicationOptions.getByNameString(FILE_TARGETDIR));
+        this.setTargerfile(applicationOptions.getByNameString(FILE_TARGETFILE));
+        this.setDonedir(applicationOptions.getByNameString(FILE_DONEDIR));
+        this.setDonefile(applicationOptions.getByNameString(FILE_DONEFILE));
+        this.setProcessedfile(applicationOptions.getByNameString(FILE_PROCESSEDFILE));
     }
 }

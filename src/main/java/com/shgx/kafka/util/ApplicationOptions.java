@@ -1,11 +1,9 @@
 package com.shgx.kafka.util;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Properties;
 import java.util.ServiceConfigurationError;
 
@@ -15,12 +13,15 @@ import java.util.ServiceConfigurationError;
 @Component
 @Scope("prototype")
 public class ApplicationOptions {
+
     private Properties properties;
 
     public void init(String inputFile) throws IOException {
-        String filePath = inputFile;
+        //InputStream in = this.getClass().getResourceAsStream("/"+inputFile);//Server环境下
+        File file = new File("src/main/resources/config/"+inputFile);
         Properties props = new Properties();
-        props.load(new FileReader(filePath));
+        FileInputStream fileInputStream = new FileInputStream(file);
+        props.load(fileInputStream);
         this.properties = props;
     }
 
@@ -30,4 +31,5 @@ public class ApplicationOptions {
         }
         return properties.getProperty(key);
     }
+
 }
