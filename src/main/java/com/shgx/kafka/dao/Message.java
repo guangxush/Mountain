@@ -1,7 +1,6 @@
 package com.shgx.kafka.dao;
 
 import lombok.Data;
-
 import java.util.Date;
 
 /**

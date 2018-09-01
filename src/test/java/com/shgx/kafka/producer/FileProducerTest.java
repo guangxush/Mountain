@@ -1,13 +1,9 @@
 package com.shgx.kafka.producer;
 
-import com.shgx.kafka.dao.ServerConfig;
-import com.shgx.kafka.services.FileWatcher;
-import com.shgx.kafka.util.ApplicationOptions;
 import org.apache.commons.io.LineIterator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
