@@ -9,7 +9,15 @@ import java.util.ArrayList;
  * Created by gshan on 2018/8/27
  */
 public abstract class KafkaProducer {
+    /**
+     * produce the data from file
+     * @param fileLineIterators
+     */
     public abstract void produceFromFile (ArrayList<LineIterator> fileLineIterators);
 
+    /**
+     * produce the data from web services
+     * @param schemaDataArray
+     */
     public abstract void produceFromService (SchemaData[] schemaDataArray);
 }

@@ -30,7 +30,7 @@ public class FileWatcher {
     private ServerConfig serverConfig;
 
     @Autowired(required=false)
-    public FileWatcher(/**@Qualifier("ServerConfig") **/ServerConfig serverConfig) {
+    public FileWatcher(ServerConfig serverConfig) {
         this.serverConfig = serverConfig;
     }
 
@@ -62,7 +62,7 @@ public class FileWatcher {
 
     /**
      * update done files to processed ones
-     * processedFilePattern = dw_ams.dw_ams_c2c_items.processed.yyyymmdd
+     * processedFilePattern = user.weibo.processed.yyyymmdd
      * */
     public Boolean updateFileStatus (ChannelSftp channel) throws SftpException {
         int datesCnt = datesToProcess.size();
@@ -84,9 +84,9 @@ public class FileWatcher {
 
 
     /**
-     * look for done files in ETL server and parse dates to process
+     * look for done files in the target server and parse dates to process
      * @param channel
-     * doneFilePattern = dw_ams.dw_ams_c2c_items.done.yyyymmdd
+     * doneFilePattern = user.weibo.done.yyyymmdd
      * */
     public void listen (ChannelSftp channel) throws SftpException {
         datesToProcess.clear();

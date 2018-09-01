@@ -1,5 +1,6 @@
 package com.shgx.kafka.consumer;
 
+
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -12,15 +13,19 @@ import java.util.Optional;
 @Component
 @Slf4j
 public class KafkaReceiver {
-    @KafkaListener(topics = {"shgx"})
+
+    private static final String TOPIC = "shgx";
+    /**
+     * receive data from kafka topic
+     * @param record
+     */
+    @KafkaListener(topics = {TOPIC})
     public void listen(ConsumerRecord<?, ?> record) {
 
         Optional<?> kafkaMessage = Optional.ofNullable(record.value());
 
         if (kafkaMessage.isPresent()) {
-
             Object message = kafkaMessage.get();
-
             log.info("----------------- record =" + record);
             log.info("----------------- message =" + message);
         }

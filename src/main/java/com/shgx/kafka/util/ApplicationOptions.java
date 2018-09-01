@@ -16,6 +16,11 @@ public class ApplicationOptions {
 
     private Properties properties;
 
+    /**
+     * init the properties file
+     * @param inputFile
+     * @throws IOException
+     */
     public void init(String inputFile) throws IOException {
         //InputStream in = this.getClass().getResourceAsStream("/"+inputFile);//Server环境下
         File file = new File("src/main/resources/config/"+inputFile);
@@ -25,6 +30,11 @@ public class ApplicationOptions {
         this.properties = props;
     }
 
+    /**
+     * get the param from properties
+     * @param key
+     * @return
+     */
     public String getByNameString (String key) {
         if (!properties.containsKey(key)) {
             throw new ServiceConfigurationError("Configuration property not found: " + key);

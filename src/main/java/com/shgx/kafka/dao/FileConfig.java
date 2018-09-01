@@ -28,52 +28,10 @@ public class FileConfig extends ServerConfig{
         this.loadConfig(SERVERS_FILES);
     }
 
-    private String targerfile;
-    private String targetdir;
-    private String donefile;
-    private String donedir;
-    private String processedfile;
-
-    public String getTargerfile() {
-        return targerfile;
-    }
-
-    public void setTargerfile(String targerfile) {
-        this.targerfile = targerfile;
-    }
-
-    public String getTargetdir() {
-        return targetdir;
-    }
-
-    public void setTargetdir(String targetdir) {
-        this.targetdir = targetdir;
-    }
-
-    public String getDonefile() {
-        return donefile;
-    }
-
-    public void setDonefile(String donefile) {
-        this.donefile = donefile;
-    }
-
-    public String getDonedir() {
-        return donedir;
-    }
-
-    public void setDonedir(String donedir) {
-        this.donedir = donedir;
-    }
-
-    public String getProcessedfile() {
-        return processedfile;
-    }
-
-    public void setProcessedfile(String processedfile) {
-        this.processedfile = processedfile;
-    }
-
+    /**
+     * using properties set the file in server
+     * @param configFile
+     */
     @Override
     public void loadConfig (String configFile){
         try {

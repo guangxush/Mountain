@@ -14,19 +14,18 @@ import org.aspectj.lang.annotation.Pointcut;
 public class LogAspect {
 
 
-    @Pointcut("execution(* com.shgx.kafka..*.*(..))")
+    @Pointcut("execution(* com.shgx.kafka.services.*.*(..))||execution(* com.shgx.kafka.producer.*.*(..))")
     private void log() {
 
     }
 
     /**
-     * AOP joinpoint to handle exception and will send email to notify
+     * AOP joinpoint to handle exception
      * */
     @AfterThrowing(pointcut = "log()", throwing = "e")
     public void doAfterThrowing(JoinPoint joinPoint, Exception e) {
         String errMsg = "Errors " + e + " happened in AccioService: " + getMethodNameAndArgs(joinPoint);
         log.error(errMsg);
-        //mailSender.sendEmail(errMsg);
     }
 
     /**

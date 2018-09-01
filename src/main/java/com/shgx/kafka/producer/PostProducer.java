@@ -22,6 +22,10 @@ public class PostProducer extends KafkaProducer{
 
     private static Gson gson = new GsonBuilder().create();
 
+    /**
+     * produce the data from web services
+     * @param schemaDataArray
+     */
     @Override
     public void produceFromService(SchemaData[] schemaDataArray) {
         for (SchemaData message : schemaDataArray) {

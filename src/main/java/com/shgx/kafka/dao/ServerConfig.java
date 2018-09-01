@@ -32,6 +32,7 @@ public class ServerConfig {
         this.loadConfig(SERVERS_FILES);
     }
 
+    //server config
     private String targetUser;
     private int targetPort;
     private String targetHost;
@@ -41,6 +42,7 @@ public class ServerConfig {
     private String jumpboxHost;
     private String jumpboxKeyfile;
 
+    //file config
     private String targerfile;
     private String targetdir;
     private String donefile;
@@ -151,6 +153,10 @@ public class ServerConfig {
         this.processedfile = processedfile;
     }
 
+    /**
+     * using properties set the server config
+     * @param configFile
+     */
     public void loadConfig (String configFile){
         try {
             applicationOptions.init(configFile);

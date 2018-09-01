@@ -35,7 +35,6 @@ public class SSHWrapper {
         String targerUser = serverConfig.getTargetUser();
         String targetHost = serverConfig.getTargetHost();
         int targetPort = serverConfig.getTargetPort();
-        String targetKeyFile = serverConfig.getTargetKeyfile();
 
         JSch jsch = new JSch();
         jsch.addIdentity(jumpboxKeyFile);

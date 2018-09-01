@@ -5,14 +5,13 @@ package com.shgx.kafka.dao;
  */
 public class SchemaData {
 
-    private Long userId; //用户id
-    private String title; //文章主题
-    private String message; //文章内容
-    private int likes; //文章点赞数
-    private String comments; //文章评论
-    //private Date sendTime;  //发送时间
-    private String sendTime;  //发送时间
-    private Boolean delete;  //是否删除
+    private Long userId;
+    private String title;
+    private String message;
+    private int likes;
+    private String comments;
+    private String sendTime;
+    private Boolean delete;
 
     public Long getUserId() {
         return userId;

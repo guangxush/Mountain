@@ -11,9 +11,9 @@ import java.util.Date;
 public class Message {
     private Long id;    //id
 
-    private String msg; //消息
+    private String msg; //message
 
-    private Date sendTime;  //时间戳
+    private Date sendTime;  //datatime
 
     public Long getId() {
         return id;
