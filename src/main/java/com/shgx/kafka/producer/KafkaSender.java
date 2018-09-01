@@ -29,7 +29,7 @@ public class KafkaSender {
     @Value("${kafka.topic}")
     private String topic;
 
-    //发送消息方法
+    //send data to kafka
     public void send() {
         Message message = new Message();
         message.setId(System.currentTimeMillis());
