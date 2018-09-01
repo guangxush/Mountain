@@ -1,7 +1,5 @@
 package com.shgx.kafka.dao;
 
-import java.util.Date;
-
 /**
  * Created by gshan on 2018/8/27
  */
