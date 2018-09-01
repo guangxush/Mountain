@@ -11,6 +11,7 @@ Using SpringBoot send data to Kafka
 7. listen the file on the server every day by scheduled task
 8. port forward connection via ssh tunnel
 9. using the private key connect the server without password
+10. get LineIterators to lazy load data and avoid load all data into memory at once
 
 ## Technology Stack
 - SpringBoot(web,mail,ScheduleTask,AOP,jcraft,json)

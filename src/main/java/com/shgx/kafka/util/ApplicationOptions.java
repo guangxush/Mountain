@@ -22,7 +22,7 @@ public class ApplicationOptions {
      * @throws IOException
      */
     public void init(String inputFile) throws IOException {
-        //InputStream in = this.getClass().getResourceAsStream("/"+inputFile);//Server环境下
+        //InputStream in = this.getClass().getResourceAsStream("/"+inputFile);//Server environment
         File file = new File("src/main/resources/config/"+inputFile);
         Properties props = new Properties();
         FileInputStream fileInputStream = new FileInputStream(file);
