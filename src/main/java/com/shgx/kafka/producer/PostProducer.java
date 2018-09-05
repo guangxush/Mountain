@@ -6,6 +6,8 @@ import com.shgx.kafka.dao.SchemaData;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.LineIterator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -16,11 +18,15 @@ import java.util.ArrayList;
  */
 @Service
 @Slf4j
+@PropertySource("classpath:config/kafka.properties")
 public class PostProducer extends KafkaProducer{
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
     private static Gson gson = new GsonBuilder().create();
+
+    @Value("${kafka.topic:shgx}")
+    private String topic;
 
     /**
      * produce the data from web services
@@ -30,7 +36,7 @@ public class PostProducer extends KafkaProducer{
     public void produceFromService(SchemaData[] schemaDataArray) {
         for (SchemaData message : schemaDataArray) {
             log.info("+++++++++++++++++++++  message = {}", gson.toJson(message));
-            kafkaTemplate.send("shgx", gson.toJson(message));
+            kafkaTemplate.send(topic, gson.toJson(message));
         }
     }
 

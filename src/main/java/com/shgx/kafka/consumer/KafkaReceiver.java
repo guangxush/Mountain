@@ -28,6 +28,5 @@ public class KafkaReceiver {
             log.info("----------------- record =" + record);
             log.info("----------------- message =" + message);
         }
-
     }
 }
