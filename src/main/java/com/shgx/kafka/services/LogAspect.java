@@ -28,7 +28,7 @@ public class LogAspect {
      * */
     @AfterThrowing(pointcut = "log()", throwing = "e")
     public void doAfterThrowing(JoinPoint joinPoint, Exception e) {
-        String errMsg = "Errors " + e + " happened in AccioService: " + getMethodNameAndArgs(joinPoint);
+        String errMsg = "Errors " + e + " happened in Service: " + getMethodNameAndArgs(joinPoint);
         log.error(errMsg);
         //mailSend.sendmail(errMsg);
     }
