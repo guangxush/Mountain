@@ -48,7 +48,7 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic shgx --from-beg
 ## 四、模型框架
 - 背景：本Project实现了Kafka消息的生产与消费，其中消息以微博消息为例设置了Schema,Producer包括WebSerives以及FileLoad两种方式，Consumer用于验证消息是否发送成功，实现了Kafka简易版的配置，用于理解Kafka处理数据的过程
 - 结构框架
-![项目框架.png](https://upload-images.jianshu.io/upload_images/7632302-6add2f342011d847.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![项目框架.png](https://github.com/guangxush/iTechHeart/blob/master/image/Mountain/kafka.png)
 
 ### 1.Kafka-Schema
 ```java
