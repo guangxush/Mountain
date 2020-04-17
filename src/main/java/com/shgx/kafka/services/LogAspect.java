@@ -9,7 +9,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Created by gshan on 2018/9/1
+ * Created by guangxush on 2018/9/1
  */
 @Aspect
 @Slf4j

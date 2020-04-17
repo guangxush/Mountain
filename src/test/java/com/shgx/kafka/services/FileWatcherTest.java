@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by gshan on 2018/8/27
+ * Created by guangxush on 2018/8/27
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest

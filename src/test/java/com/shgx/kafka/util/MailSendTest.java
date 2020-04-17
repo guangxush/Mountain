@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * Created by gshan on 2018/9/1
+ * Created by guangxush on 2018/9/1
  */
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)

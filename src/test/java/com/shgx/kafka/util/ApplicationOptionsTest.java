@@ -10,7 +10,7 @@ import java.util.ServiceConfigurationError;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by gshan on 2018/9/1
+ * Created by guangxush on 2018/9/1
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest

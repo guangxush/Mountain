@@ -1,7 +1,7 @@
 package com.shgx.kafka.dao;
 
 /**
- * Created by gshan on 2018/8/27
+ * Created by guangxush on 2018/8/27
  */
 public class SchemaData {
 

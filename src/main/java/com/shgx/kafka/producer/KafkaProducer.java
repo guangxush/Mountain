@@ -6,7 +6,7 @@ import org.apache.commons.io.LineIterator;
 import java.util.ArrayList;
 
 /**
- * Created by gshan on 2018/8/27
+ * Created by guangxush on 2018/8/27
  */
 public abstract class KafkaProducer {
     /**

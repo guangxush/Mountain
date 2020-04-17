@@ -4,7 +4,7 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * Created by gshan on 2018/8/27
+ * Created by guangxush on 2018/8/27
  */
 @Data
 public class Message {

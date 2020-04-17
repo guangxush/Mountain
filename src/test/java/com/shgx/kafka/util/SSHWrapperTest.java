@@ -18,7 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import static junit.framework.TestCase.assertNotNull;
 
 /**
- * Created by gshan on 2018/9/1
+ * Created by guangxush on 2018/9/1
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest

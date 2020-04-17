@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 /**
- * Created by gshan on 2018/9/1
+ * Created by guangxush on 2018/9/1
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest

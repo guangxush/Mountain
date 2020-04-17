@@ -8,7 +8,7 @@ import java.util.Properties;
 import java.util.ServiceConfigurationError;
 
 /**
- * Created by gshan on 2018/8/27
+ * Created by guangxush on 2018/8/27
  */
 @Component
 @Scope("prototype")

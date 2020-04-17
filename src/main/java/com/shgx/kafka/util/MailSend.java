@@ -13,7 +13,7 @@ import java.util.Properties;
 
 
 /**
- * Created by gshan on 2018/9/1
+ * Created by guangxush on 2018/9/1
  */
 @Component
 @PropertySource("classpath:config/mail.properties")
